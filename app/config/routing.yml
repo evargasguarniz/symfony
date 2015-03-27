@@ -1,0 +1,7 @@
+distrito_caserios:
+    resource: "@DistritoCaseriosBundle/Resources/config/routing.yml"
+    prefix:   /caserios
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

@@ -1,0 +1,12 @@
+distrito_caserios_homepage:
+    path:     /index
+    defaults: { _controller: DistritoCaseriosBundle:Caserios:index }
+distrito_quienes_somos:
+    path:     /quienes-somos
+    defaults: { _controller: DistritoCaseriosBundle:Caserios:quienes }
+distrito_blog:
+    path:     /blog
+    defaults: { _controller: DistritoCaseriosBundle:Caserios:blog }
+distrito_contact:
+    path:     /contact
+    defaults: { _controller: DistritoCaseriosBundle:Caserios:contact }
