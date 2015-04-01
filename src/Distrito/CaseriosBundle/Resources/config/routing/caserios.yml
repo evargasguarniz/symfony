@@ -1,0 +1,30 @@
+caserios:
+    path:     /
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:index" }
+
+caserios_show:
+    path:     /{id}/show
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:show" }
+
+caserios_new:
+    path:     /new
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:new" }
+
+caserios_create:
+    path:     /create
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:create" }
+    methods:  POST
+
+caserios_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:edit" }
+
+caserios_update:
+    path:     /{id}/update
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:update" }
+    methods:  [POST, PUT]
+
+caserios_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DistritoCaseriosBundle:Caserios:delete" }
+    methods:  [POST, DELETE]

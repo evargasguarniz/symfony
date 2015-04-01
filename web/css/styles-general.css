@@ -10,6 +10,7 @@ p{font-family: 'open sans'; font-style:normal; font-weight:300;}
 h5{font-size: 15px;}
 .container-page{width: 170px; margin: 15px 0 15px 0;}
 .container-page a{font-size: 12px;}
+.background-color-555553{background-color:#555553 !important;}
 
 /*en styles general*/
 
@@ -41,7 +42,6 @@ h5{font-size: 15px;}
 /*end blog*/
 /*contact*/
 .contact-generic-page{padding: 50px 0 50px 0;}
-.form-contact-page > form >div > input,textarea{background-color: #555553 !important; color: #fff !important;}
 
 /*end contact*/
 

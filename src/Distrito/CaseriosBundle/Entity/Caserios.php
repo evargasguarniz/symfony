@@ -3,6 +3,7 @@
 namespace Distrito\CaseriosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Caserios
@@ -20,6 +21,11 @@ class Caserios
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Autoridades", mappedBy="Caserios")
+     **/
+    private $Autoridades;
 
     /**
      * @var string

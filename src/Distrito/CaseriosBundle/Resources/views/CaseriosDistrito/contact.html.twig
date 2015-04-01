@@ -1,0 +1,54 @@
+{# src/Caserios/CaseriosBundle/Resurces/views/Caserios/base.thml.twig #}
+{% extends 'DistritoCaseriosBundle::base.thml.twig' %}
+{% block title %} Contacto {% endblock %}
+{% block body %}
+	<section>
+		    <!--contact-->
+			<div class="container">
+				<div class="row">
+					<div class="contact-generic-page">
+						<div class="col-lg-6">
+							<div class="contact-page">
+							<h3 class="view-color-787878"><i class="fa fa-envelope-o img-circle"></i> Formulario de contacto </h3>
+								<p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución más o menos normal de las letras, al contrario de usar textos como por ejemplo "Contenido aquí,</p>
+
+								<p>Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño. El punto de usar Lorem Ipsum es que tiene una distribución.</p>
+							</div>
+
+						</div>
+						<div class="col-lg-6">
+							<div class="form-contact-page">
+								<form>
+									<div class="form-group">
+										<label  class="view-color-787878">Nombre</label>
+										<input  type="text" class="form-control background-color-555553 view-color-B4B5B2" id="idnombre" placeholder="Nombre apellidos">
+									</div>
+									<div class="form-group">
+										<label class="view-color-787878">Edad</label>
+										<input  name="txtciudade" type="text" class="form-control background-color-555553 view-color-B4B5B2" id="idciudad" placeholder="Edad">
+									</div>
+									<div class="form-group">
+										<label class="view-color-787878">Ciudad / Caserio</label>
+										<input  name="txtciudade" type="text" class="form-control background-color-555553 view-color-B4B5B2" id="idciudad" placeholder="Ciudad / Caserio">
+									</div>
+									
+									<div class="form-group">
+										<label class="view-color-787878">Email</label>
+										<input  name="txtemail" type="text" class="form-control background-color-555553 view-color-B4B5B2" id="idemail" placeholder="Email">
+									</div>
+									<div class="form-group">
+										<label class="view-color-787878" >Mensaje</label>
+										<textarea name="texttareamensaje" class="form-control background-color-555553 view-color-B4B5B2" rows="3"></textarea>
+									</div>
+									
+									<button type="submit" class="btn btn-info">Submit</button>
+								</form>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		    <!--end contact-->
+		</section>
+{% endblock %}

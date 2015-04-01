@@ -59,9 +59,9 @@ class Comidas
     /**
      * @var integer
      *
-     * @ORM\Column(name="idCaserio", type="integer")
+     * @ORM\Column(name="Caserio", type="integer")
      */
-    private $idCaserio;
+    private $Caserio;
 
     /**
      * Get id

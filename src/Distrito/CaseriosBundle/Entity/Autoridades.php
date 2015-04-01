@@ -1,8 +1,10 @@
 <?php
 
 namespace Distrito\CaseriosBundle\Entity;
+namespace Distrito\CaseriosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Autoridades
@@ -20,13 +22,11 @@ class Autoridades
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_caserio", type="integer")
-     */
-    private $idCaserio;
+     /**
+     * @ORM\ManyToOne(targetEntity="Caserios")
+     * @ORM\JoinColumn(name="Caserios_id", referencedColumnName="id")
+     **/
+    private $Caserios;
 
     /**
      * @var string

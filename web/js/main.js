@@ -1,16 +1,9 @@
 $(document).ready(function(){
-/*load header*/
-function loadheader(){
-	$("#container-header").load("header.html");
+/*form edit caserios*/
+function addClassformControl(){
+	$('#form-edit-caserios > div').addClass("form-group");
+	$('#form-edit-caserios > div > label').addClass("");
 }
-loadheader();
-/*end load*/
-
-/*load footer*/
-function loadfooter(){
-	$("#footer-page").load("footer.html");
-}
-loadfooter();
-/*end footer */
+addClassformControl();
 
 });

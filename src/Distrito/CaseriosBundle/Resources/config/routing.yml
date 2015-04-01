@@ -1,12 +1,16 @@
+distrito_caserios_caserios:
+    resource: "@DistritoCaseriosBundle/Resources/config/routing/caserios.yml"
+    prefix:   /caserios
+
 distrito_caserios_homepage:
-    path:     /index
-    defaults: { _controller: DistritoCaseriosBundle:Caserios:index }
+    path:     /caserio
+    defaults: { _controller: DistritoCaseriosBundle:CaseriosDistrito:index }
 distrito_quienes_somos:
     path:     /quienes-somos
-    defaults: { _controller: DistritoCaseriosBundle:Caserios:quienes }
+    defaults: { _controller: DistritoCaseriosBundle:CaseriosDistrito:quienes }
 distrito_blog:
     path:     /blog
-    defaults: { _controller: DistritoCaseriosBundle:Caserios:blog }
+    defaults: { _controller: DistritoCaseriosBundle:CaseriosDistrito:blog }
 distrito_contact:
     path:     /contact
-    defaults: { _controller: DistritoCaseriosBundle:Caserios:contact }
+    defaults: { _controller: DistritoCaseriosBundle:CaseriosDistrito:contact }
