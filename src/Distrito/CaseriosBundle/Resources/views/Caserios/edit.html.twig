@@ -1,27 +1,37 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    
-    <div class="container">
-    	<div class="row">
-    	<div class="col-lg-12">
-    		<h1 class="text-primary">Edit Caserios</h1>
-    	</div>
-    		<div class="col-lg-12" id="form-edit-caserios">
-				 {{ form_row(edit_form.nombre) }}
-    			 {{ form_row(edit_form.descripcion) }}
-    			 {{ form_row(edit_form.fecha) }}
-    		</div>
-    	</div>
-    </div>
+	{% block body -%}
+		<section>
+			    <div class="container">
+			    	<div class="row">
+			    	<div class="col-lg-6">
+			    		<h5 class="text-primary">Edit Caserios</h5>
+			    	</div>
+			    	<div class="col-lg-6">
+			    		<h5 class="text-primary"><a href="{{ path('caserios') }}">Lista caserios </a></h5>
+			    	</div>
+			    		<form action="{{ path('caserios_update',{'id':entity.id})}}" method="post" id="edit-form-caserios {{ form_enctype(edit_form) }}">
 
-   
-
-        <ul class="record_actions">
-		    <li>
-		        <a href="{{ path('caserios') }}">Lista caserios </a>
-		    </li>
-		   
-		    <li>{{ form(delete_form) }}</li>
-		</ul>
-{% endblock %}
+			    		<div class="col-lg-12" id="form-edit-caserios">
+							 {{ form_row(edit_form.nombre) }}
+			    			 {{ form_row(edit_form.descripcion) }}
+			    			 {{ form_row(edit_form.fecha) }}
+			    			{{ form_row(edit_form.submit) }}
+			    			{{ form_row(edit_form._token) }}
+			    		</div>
+			    		</form>
+			    	</div>
+			    </div>
+			   <div class="container">
+				   <div class="row">
+				   <form action="{{ path('caserios_delete',{'id':entity.id})}}" method="post" id="delete-form-caserios {{ form_enctype(edit_form) }}">
+					   		<div class="col-lg-12" id="form-delete-caserios">
+				    			{{ form_row(delete_form.submit) }}
+				    			{{ form_row(delete_form._token) }}
+					   		</div>
+				   		</form>
+				   </div>
+			   </div>
+	   </section>
+	        
+	{% endblock %}

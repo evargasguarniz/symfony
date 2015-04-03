@@ -1,50 +1,46 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-primary">List caserios </h1>
+   <div class="container">
+       <div class="row">
+            <div class="col-lg-6">
+                <h4 class="text-primary">List caserios </h4>
+            </div>
+            <div class="col-lg-6">
+                <h5 class="text-primary"><a href="{{ path('caserios_new') }}">Create a new entry</a></h5>  
+            </div>
+       </div>
+   </div>
+
+   
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="text-muted">Nombre</th>
-                                    <th class="text-muted">Descripcion</th>
-                                    <th class="text-muted">Fecha</th>
-                                    <th class="text-muted">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {% for entity in entities %}
-                                <tr>
-                                    <td><a href="{{ path('caserios_show', { 'id': entity.id }) }}">{{ entity.nombre }}</a></td>
-                                    <td>{{ entity.descripcion }}</td>
-                                    <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
-                                    <td>
-                                    <ul>
-                                        <li>
-                                            <a href="{{ path('caserios_show', { 'id': entity.id }) }}">show</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('caserios_edit', { 'id': entity.id }) }}">edit</a>
-                                        </li>
-                                    </ul>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
+                    {% for entity in entities %}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                           <div> <span  class="padding-20px text-danger">Nombre</span></div>
+                            {{ entity.nombre }}
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <div><span  class="padding-20px text-danger">Descripcion</span></div>
+                            {{ entity.descripcion }}
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                            <div><span  class="padding-20px text-danger">Fecha</span></div>
+                            {% if entity.fecha %}{{ entity.fecha|date('Y-m-d') }}{% endif %}
+                        </div>
+                        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+                                <div><span  class="padding-20px text-danger">Actions</span></div>
+                                <a href="{{ path('caserios_edit', { 'id': entity.id }) }}">edit</a><br>
+                                <a href="{{ path('caserios_show', { 'id': entity.id }) }}">Show</a>
+                        </div>
                     </div>
-                </div>
+                    <hr class="colorgraph">
+                    {% endfor %}
             </div>
         </div>
+    </div>
 
-        <ul>
-        <li>
-            <a href="{{ path('caserios_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    
     {% endblock %}
