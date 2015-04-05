@@ -22,11 +22,24 @@ class Galeria
     private $id;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="imgGaleria", type="string", length=255)
+     * @ORM\Column(name="imgGaleria", type="string" )
      */
     private $imgGaleria;
+
+     /**
+     * @var text
+     *
+     * @ORM\Column(name="descripcion", type="text")
+     */
+    private $descripcion;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Caserios")
+     * @ORM\JoinColumn(name="Caserios_id", nullable=false, referencedColumnName="id")
+     **/
+    private $Caserios;
 
     /**
      * Get id
@@ -37,6 +50,8 @@ class Galeria
     {
         return $this->id;
     }
+
+   
 
     /**
      * Set imgGaleria
@@ -60,4 +75,52 @@ class Galeria
     {
         return $this->imgGaleria;
     }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     * @return Galeria
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string 
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set Caserios
+     *
+     * @param \Distrito\CaseriosBundle\Entity\Caserios $caserios
+     * @return Galeria
+     */
+    public function setCaserios(\Distrito\CaseriosBundle\Entity\Caserios $caserios)
+    {
+        $this->Caserios = $caserios;
+
+        return $this;
+    }
+
+    /**
+     * Get Caserios
+     *
+     * @return \Distrito\CaseriosBundle\Entity\Caserios 
+     */
+    public function getCaserios()
+    {
+        return $this->Caserios;
+    }
+
+    
 }

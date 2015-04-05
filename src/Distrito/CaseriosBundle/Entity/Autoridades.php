@@ -5,7 +5,6 @@ namespace Distrito\CaseriosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * Autoridades
  *
@@ -22,12 +21,7 @@ class Autoridades
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-     /**
-     * @ORM\ManyToOne(targetEntity="Caserios")
-     * @ORM\JoinColumn(name="Caserios_id", referencedColumnName="id")
-     **/
-    private $Caserios;
-
+    
     /**
      * @var string
      *
@@ -69,6 +63,12 @@ class Autoridades
      * @ORM\Column(name="GradoEstudio", type="string", length=255)
      */
     private $gradoEstudio;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="Caserios")
+     * @ORM\JoinColumn(name="Caserios_id", nullable=false, referencedColumnName="id")
+     **/
+    private $Caserios;
 
     /**
      * Get id
@@ -240,4 +240,10 @@ class Autoridades
     {
         return $this->gradoEstudio;
     }
+
+    public function __toString()
+    {
+        return $this->nombreAutoridad;
+    }
+   
 }

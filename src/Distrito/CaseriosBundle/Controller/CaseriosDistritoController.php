@@ -3,6 +3,8 @@
 namespace Distrito\CaseriosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Distrito\CaseriosBundle\Entity\Galeria;
+use Distrito\CaseriosBundle\Entity\Caserios;
 
 class CaseriosDistritoController extends Controller
 {
@@ -11,7 +13,23 @@ class CaseriosDistritoController extends Controller
 	*/
     public function indexAction()
     {
-        return $this->render('DistritoCaseriosBundle:CaseriosDistrito:caserio.html.twig');
+        //$em = $this->getDoctrine()->getManager();
+        //$entity = $em->getRepository('DistritoCaseriosBundle:Caserios')->findAll();
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            "SELECT c,p FROM DistritoCaseriosBundle:Caserios c 
+            JOIN c.galeria p"
+            );
+            $entity = $query->getResult();
+           
+        return $this->render('DistritoCaseriosBundle:CaseriosDistrito:caserio.html.twig',array(
+            'entity'=>$entity,
+            ));
+    }
+
+    public function detalleAction(){
+        return $this->render('DistritoCaseriosBundle:CaseriosDistrito:detallecaserio.html.twig');
     }
     /*
 	* funcion para vista quienes somos

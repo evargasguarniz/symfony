@@ -5,35 +5,37 @@ namespace Distrito\CaseriosBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Distrito\CaseriosBundle\Entity\Caserios;
-use Distrito\CaseriosBundle\Form\CaseriosType;
+use Distrito\CaseriosBundle\Entity\Galeria;
+use Distrito\CaseriosBundle\Form\GaleriaType;
 
 /**
- * Caserios controller.
+ * Galeria controller.
  *
  */
-class CaseriosController extends Controller
+class GaleriaController extends Controller
 {
+
     /**
-     * Lists all Caserios entities.
+     * Lists all Galeria entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DistritoCaseriosBundle:Caserios')->findAll();
-        return $this->render('DistritoCaseriosBundle:Caserios:index.html.twig', array(
+        $entities = $em->getRepository('DistritoCaseriosBundle:Galeria')->findAll();
+
+        return $this->render('DistritoCaseriosBundle:Galeria:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new Caserios entity.
+     * Creates a new Galeria entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new Caserios();
+        $entity = new Galeria();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -42,26 +44,26 @@ class CaseriosController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('caserios_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('galeria_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('DistritoCaseriosBundle:Caserios:new.html.twig', array(
+        return $this->render('DistritoCaseriosBundle:Galeria:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a form to create a Caserios entity.
+     * Creates a form to create a Galeria entity.
      *
-     * @param Caserios $entity The entity
+     * @param Galeria $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Caserios $entity)
+    private function createCreateForm(Galeria $entity)
     {
-        $form = $this->createForm(new CaseriosType(), $entity, array(
-            'action' => $this->generateUrl('caserios_create'),
+        $form = $this->createForm(new GaleriaType(), $entity, array(
+            'action' => $this->generateUrl('galeria_create'),
             'method' => 'POST',
         ));
 
@@ -71,60 +73,60 @@ class CaseriosController extends Controller
     }
 
     /**
-     * Displays a form to create a new Caserios entity.
+     * Displays a form to create a new Galeria entity.
      *
      */
     public function newAction()
     {
-        $entity = new Caserios();
+        $entity = new Galeria();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('DistritoCaseriosBundle:Caserios:new.html.twig', array(
+        return $this->render('DistritoCaseriosBundle:Galeria:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a Caserios entity.
+     * Finds and displays a Galeria entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DistritoCaseriosBundle:Caserios')->find($id);
+        $entity = $em->getRepository('DistritoCaseriosBundle:Galeria')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Caserios entity.');
+            throw $this->createNotFoundException('Unable to find Galeria entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('DistritoCaseriosBundle:Caserios:show.html.twig', array(
+        return $this->render('DistritoCaseriosBundle:Galeria:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Caserios entity.
+     * Displays a form to edit an existing Galeria entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DistritoCaseriosBundle:Caserios')->find($id);
+        $entity = $em->getRepository('DistritoCaseriosBundle:Galeria')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Caserios entity.');
+            throw $this->createNotFoundException('Unable to find Galeria entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('DistritoCaseriosBundle:Caserios:edit.html.twig', array(
+        return $this->render('DistritoCaseriosBundle:Galeria:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -132,17 +134,17 @@ class CaseriosController extends Controller
     }
 
     /**
-    * Creates a form to edit a Caserios entity.
+    * Creates a form to edit a Galeria entity.
     *
-    * @param Caserios $entity The entity
+    * @param Galeria $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Caserios $entity)
+    private function createEditForm(Galeria $entity)
     {
-        $form = $this->createForm(new CaseriosType(), $entity, array(
-            'action' => $this->generateUrl('caserios_update', array('id' => $entity->getId())),
-            
+        $form = $this->createForm(new GaleriaType(), $entity, array(
+            'action' => $this->generateUrl('galeria_update', array('id' => $entity->getId())),
+            'method' => 'PUT',
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -150,17 +152,17 @@ class CaseriosController extends Controller
         return $form;
     }
     /**
-     * Edits an existing Caserios entity.
+     * Edits an existing Galeria entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('DistritoCaseriosBundle:Caserios')->find($id);
+        $entity = $em->getRepository('DistritoCaseriosBundle:Galeria')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Caserios entity.');
+            throw $this->createNotFoundException('Unable to find Galeria entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -169,39 +171,42 @@ class CaseriosController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-            return $this->redirect($this->generateUrl('caserios', array('id' => $id)));
+
+            return $this->redirect($this->generateUrl('galeria_edit', array('id' => $id)));
         }
-        return $this->render('DistritoCaseriosBundle:Caserios:edit.html.twig', array(
+
+        return $this->render('DistritoCaseriosBundle:Galeria:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a Caserios entity.
+     * Deletes a Galeria entity.
      *
      */
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('DistritoCaseriosBundle:Caserios')->find($id);
+            $entity = $em->getRepository('DistritoCaseriosBundle:Galeria')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Caserios entity.');
+                throw $this->createNotFoundException('Unable to find Galeria entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('caserios'));
+        return $this->redirect($this->generateUrl('galeria'));
     }
 
     /**
-     * Creates a form to delete a Caserios entity by id.
+     * Creates a form to delete a Galeria entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -210,8 +215,8 @@ class CaseriosController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('caserios_delete', array('id' => $id)))
-           // ->setMethod('DELETE')
+            ->setAction($this->generateUrl('galeria_delete', array('id' => $id)))
+            ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;

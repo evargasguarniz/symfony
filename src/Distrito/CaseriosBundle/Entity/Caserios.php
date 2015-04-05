@@ -4,6 +4,7 @@ namespace Distrito\CaseriosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Caserios
@@ -21,11 +22,6 @@ class Caserios
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Autoridades", mappedBy="Caserios")
-     **/
-    private $Autoridades;
 
     /**
      * @var string
@@ -48,6 +44,15 @@ class Caserios
      */
     private $fecha;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Autoridades", mappedBy="Caserios")
+     **/
+    private $Autoridades;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Galeria", mappedBy="Caserios")
+     **/
+    private $galeria;
 
     /**
      * Get id
@@ -126,5 +131,15 @@ class Caserios
     public function getFecha()
     {
         return $this->fecha;
+    }
+
+    /*metodos magicos*/
+
+    public function __toString(){
+        return  $this->nombre;
+    }
+
+    public function __construct(){
+        $this->Autoridades= New ArrayCollection();
     }
 }
