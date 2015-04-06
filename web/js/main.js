@@ -13,4 +13,9 @@ function addClassformDeleteControl(){
 	}
 	addClassformDeleteControl();
 
+	function addClassPrimerElemento(){
+		$('.item').eq(0).addClass('active')
+
+	}
+	addClassPrimerElemento();
 });

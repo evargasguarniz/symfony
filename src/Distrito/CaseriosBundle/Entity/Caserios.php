@@ -50,9 +50,20 @@ class Caserios
     private $Autoridades;
 
     /**
-     * @ORM\OneToMany(targetEntity="Galeria", mappedBy="Caserios")
+    * @var integer
+     * @ORM\OneToMany(targetEntity="Galeria", mappedBy="caserios_id")
      **/
-    private $galeria;
+    protected $galeria;
+
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Autoridades = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -133,13 +144,76 @@ class Caserios
         return $this->fecha;
     }
 
+    /**
+     * Add Autoridades
+     *
+     * @param \Distrito\CaseriosBundle\Entity\Autoridades $autoridades
+     * @return Caserios
+     */
+    public function addAutoridade(\Distrito\CaseriosBundle\Entity\Autoridades $autoridades)
+    {
+        $this->Autoridades[] = $autoridades;
+
+        return $this;
+    }
+
+    /**
+     * Remove Autoridades
+     *
+     * @param \Distrito\CaseriosBundle\Entity\Autoridades $autoridades
+     */
+    public function removeAutoridade(\Distrito\CaseriosBundle\Entity\Autoridades $autoridades)
+    {
+        $this->Autoridades->removeElement($autoridades);
+    }
+
+    /**
+     * Get Autoridades
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAutoridades()
+    {
+        return $this->Autoridades;
+    }
+
+    /**
+     * Add galeria
+     *
+     * @param \Distrito\CaseriosBundle\Entity\Galeria $galeria
+     * @return Caserios
+     */
+    public function addGalerium(\Distrito\CaseriosBundle\Entity\Galeria $galeria)
+    {
+        $this->galeria[] = $galeria;
+
+        return $this;
+    }
+
+    /**
+     * Remove galeria
+     *
+     * @param \Distrito\CaseriosBundle\Entity\Galeria $galeria
+     */
+    public function removeGalerium(\Distrito\CaseriosBundle\Entity\Galeria $galeria)
+    {
+        $this->galeria->removeElement($galeria);
+    }
+
+    /**
+     * Get galeria
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGaleria()
+    {
+        return $this->galeria;
+    }
+
     /*metodos magicos*/
 
     public function __toString(){
         return  $this->nombre;
     }
 
-    public function __construct(){
-        $this->Autoridades= New ArrayCollection();
-    }
 }

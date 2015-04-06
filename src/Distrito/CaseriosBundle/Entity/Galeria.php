@@ -39,7 +39,9 @@ class Galeria
      * @ORM\ManyToOne(targetEntity="Caserios")
      * @ORM\JoinColumn(name="Caserios_id", nullable=false, referencedColumnName="id")
      **/
-    private $Caserios;
+    protected $Caserios_id;
+    
+    
 
     /**
      * Get id
@@ -50,8 +52,6 @@ class Galeria
     {
         return $this->id;
     }
-
-   
 
     /**
      * Set imgGaleria
@@ -100,26 +100,26 @@ class Galeria
     }
 
     /**
-     * Set Caserios
+     * Set Caserios_id
      *
-     * @param \Distrito\CaseriosBundle\Entity\Caserios $caserios
+     * @param \Distrito\CaseriosBundle\Entity\Caserios $caseriosId
      * @return Galeria
      */
-    public function setCaserios(\Distrito\CaseriosBundle\Entity\Caserios $caserios)
+    public function setCaseriosId(\Distrito\CaseriosBundle\Entity\Caserios $caseriosId)
     {
-        $this->Caserios = $caserios;
+        $this->Caserios_id = $caseriosId;
 
         return $this;
     }
 
     /**
-     * Get Caserios
+     * Get Caserios_id
      *
      * @return \Distrito\CaseriosBundle\Entity\Caserios 
      */
-    public function getCaserios()
+    public function getCaseriosId()
     {
-        return $this->Caserios;
+        return $this->Caserios_id;
     }
 
     

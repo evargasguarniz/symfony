@@ -17,7 +17,7 @@ class GaleriaType extends AbstractType
         $builder
             ->add('imgGaleria')
             ->add('descripcion')
-            ->add('Caserios')
+            ->add('Caserios_id')
         ;
     }
     

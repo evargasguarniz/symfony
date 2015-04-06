@@ -1,6 +1,6 @@
 /*styles general*/
 p{font-family: 'open sans'; font-style:normal; font-weight:300;}
-.view-color-fff{color: #fff;}
+.view-color-fff{color: #fff !important;}
 .view-color-000000{color: #000000;}
 .view-color-05a9e8{color: #05a9e8;}
 .view-color-787878{color: #787878;}
@@ -32,6 +32,8 @@ footer{margin: 10px 0 0px 0;}
 .nav-menu-right{padding: 10px 0 10px 0; float: right;}
 .nav-menu-right i{font-size: 25px; color: #fff;}
 .form-search-page{padding: 30px 0 0 0;}
+.carousel-inner .item img{max-height: 350px;  width: 100%;}
+.thumbnail img{max-height: 100px; width: 100%;}
 /*end home*/
 
 /*About us*/
@@ -70,10 +72,13 @@ footer{margin: 10px 0 0px 0;}
 
 
 @media screen and (max-width: 1024px) {
+	/*init home */
+	.carousel-inner .item img{max-height: 300px;}
+	/*end home*/
 }
 @media screen and (max-width: 768px) {
 	/*init generic*/
-	.id-img-head > div img{ min-height: 300px; overflow-x:hidden; overflow-y:hidden;}
+	.id-img-head > div img{ min-height: 200px; overflow-x:hidden; overflow-y:hidden;}
 	/*end generic*/
 
 	/*init menu*/
@@ -91,6 +96,9 @@ footer{margin: 10px 0 0px 0;}
 	/*end footer*/
 }
 @media screen and (max-width: 480px) {
+	/*init home */
+	.carousel-inner .item img{max-height: 200px;}
+	/*end home*/
 
 	/*init home*/
 	.container-xs-alter .thumbnail img{width: 100%;}
