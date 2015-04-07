@@ -18,21 +18,15 @@ class CaseriosDistritoController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
-            "SELECT c.id,c.nombre,c.descripcion,g.imgGaleria  FROM DistritoCaseriosBundle:Caserios c 
-            LEFT JOIN DistritoCaseriosBundle:Galeria g WITH c.id = g.Caserios_id"
+            "SELECT c.id,c.nombre,c.descripcion,g.imgGaleria FROM DistritoCaseriosBundle:Caserios c 
+            JOIN DistritoCaseriosBundle:Galeria g WITH c.id = g.Caserios_id"
             );
-        
-
             $entity = $query->getResult();
-
             /*traer imagenes de slider */
             $query = $em->createQuery(
-                "SELECT g  FROM DistritoCaseriosBundle:Galeria g"
+                "SELECT g.imgGaleria,g.descripcion FROM DistritoCaseriosBundle:Galeria g"
                 );
-
             $gallery = $query->getResult();
-
-            
 
         return $this->render('DistritoCaseriosBundle:CaseriosDistrito:caserio.html.twig',array(
             'entity'=>$entity,

@@ -41,8 +41,6 @@ class Galeria
      **/
     protected $Caserios_id;
     
-    
-
     /**
      * Get id
      *
@@ -121,6 +119,4 @@ class Galeria
     {
         return $this->Caserios_id;
     }
-
-    
 }

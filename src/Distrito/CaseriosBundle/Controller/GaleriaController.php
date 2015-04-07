@@ -24,6 +24,7 @@ class GaleriaController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('DistritoCaseriosBundle:Galeria')->findAll();
+        
 
         return $this->render('DistritoCaseriosBundle:Galeria:index.html.twig', array(
             'entities' => $entities,
