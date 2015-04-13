@@ -29,11 +29,12 @@
                         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                             <div><span  class="padding-20px text-danger">Fecha</span></div>
                             {% if entity.fecha %}{{ entity.fecha|date('Y-m-d') }}{% endif %}
+
                         </div>
                         <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-                                <div><span  class="padding-20px text-danger">Actions</span></div>
-                                <a href="{{ path('caserios_edit', { 'id': entity.id }) }}">edit</a><br>
-                                <a href="{{ path('caserios_show', { 'id': entity.id }) }}">Show</a>
+                            <div><span  class="padding-20px text-danger">Actions</span></div>
+                            <a href="{{ path('caserios_edit', { 'id': entity.id }) }}">edit</a><br>
+                            <a href="{{ path('caserios_show', { 'id': entity.id }) }}">Show</a>
                         </div>
                     </div>
                     <hr class="colorgraph">

@@ -1,11 +1,9 @@
-distrito_caserios_galeria:
-    resource: "@DistritoCaseriosBundle/Resources/config/routing/galeria.yml"
-    prefix:   /galeria
-
 distrito_caserios_caserios:
     resource: "@DistritoCaseriosBundle/Resources/config/routing/caserios.yml"
     prefix:   /caserios
-
+distrito_caserios_galeria:
+    resource: "@DistritoCaseriosBundle/Resources/config/routing/galeria.yml"
+    prefix:   /galeria
 distrito_caserios_homepage:
     path:     /caserio-list
     defaults: { _controller: DistritoCaseriosBundle:CaseriosDistrito:index }

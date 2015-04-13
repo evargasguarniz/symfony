@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Distrito\CaseriosBundle\Entity\Caserios;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Distrito\CaseriosBundle\Form\CaseriosType;
 
 /**
@@ -14,6 +15,7 @@ use Distrito\CaseriosBundle\Form\CaseriosType;
  */
 class CaseriosController extends Controller
 {
+
     /**
      * Lists all Caserios entities.
      *
@@ -23,6 +25,7 @@ class CaseriosController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('DistritoCaseriosBundle:Caserios')->findAll();
+
         return $this->render('DistritoCaseriosBundle:Caserios:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -142,7 +145,7 @@ class CaseriosController extends Controller
     {
         $form = $this->createForm(new CaseriosType(), $entity, array(
             'action' => $this->generateUrl('caserios_update', array('id' => $entity->getId())),
-            
+            //'method' => 'PUT',
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
@@ -169,8 +172,10 @@ class CaseriosController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+
             return $this->redirect($this->generateUrl('caserios', array('id' => $id)));
         }
+
         return $this->render('DistritoCaseriosBundle:Caserios:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
@@ -185,6 +190,7 @@ class CaseriosController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('DistritoCaseriosBundle:Caserios')->find($id);
@@ -211,7 +217,7 @@ class CaseriosController extends Controller
     {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('caserios_delete', array('id' => $id)))
-           // ->setMethod('DELETE')
+            ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;

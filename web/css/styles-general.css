@@ -22,9 +22,16 @@ h5{font-size: 15px;}
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }	
 .padding-20px{padding: 8px 0; display: block;}
-footer{margin: 10px 0 0px 0;}
+
+
 
 /*en styles general*/
+
+
+/*init footer*/
+footer{margin: 10px 0 0px 0;}
+.detalle-page > div > iframe{width: 100%; height: 300px; padding: 0 0 20px 0;}
+/*end footer*/
 
 /*init home*/
 .text-titles {padding: 30px 0 25px 0; margin: 30px 0 30px 0;}
@@ -35,6 +42,13 @@ footer{margin: 10px 0 0px 0;}
 .carousel-inner .item img{max-height: 350px;  width: 100%;}
 .thumbnail img{max-height: 100px; width: 100%;}
 /*end home*/
+/*dellalle caserios */
+.img-detalle img{width: 49%; height: auto; float: left; margin: 0 10px 10px 0;}
+.detalle-text{}
+.detalle-page{padding: 20px 0 10px 0;}
+.detalle-img-thui{padding: 20px 10px 0 0; float: left;}
+.detalle-img-thui > img{ width: 70px; height: 60px;}
+/*end detalle*/
 
 /*About us*/
 #about-us{padding: 50px 0 50px 0;}
@@ -75,6 +89,10 @@ footer{margin: 10px 0 0px 0;}
 	/*init home */
 	.carousel-inner .item img{max-height: 300px;}
 	/*end home*/
+
+	/*init footer*/
+	.detalle-page > div > iframe{width: 100%; height: 200px;}
+	/*end footer*/
 }
 @media screen and (max-width: 768px) {
 	/*init generic*/
@@ -85,6 +103,14 @@ footer{margin: 10px 0 0px 0;}
 	.nav > li{ text-align: center; border-bottom: 1px solid #fff;}
 	.nav-menu-right{float: none; text-align: center;}
 	/*end menu*/
+
+	/*dellalle caserios */
+	.img-detalle img{width: 99%;}
+/*end detalle*/
+
+	/*init footer*/
+	.detalle-page > div > iframe{width: 100%; height: 200px;}
+	/*end footer*/
 }
 @media screen and (max-width: 640px) {
 	/*init footer*/
@@ -104,6 +130,12 @@ footer{margin: 10px 0 0px 0;}
 	.container-xs-alter .thumbnail img{width: 100%;}
 	.container-xs-alter .row > div{width: 100%;}
 	/*end home*/
+
+	/*init footer*/
+	.detalle-page > div {width: 100% !important;}
+	.detalle-page > div > iframe{width: 100%; height: 250px;}
+	
+	/*end footer*/
 
 }
 @media screen and (max-width: 320px) {

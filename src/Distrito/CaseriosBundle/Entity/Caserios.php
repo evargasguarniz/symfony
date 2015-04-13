@@ -38,6 +38,34 @@ class Caserios
     private $descripcion;
 
     /**
+     * @var string
+     * @ORM\Column(name="Imagencaserio", type="text")
+     */
+    private $Imagencaserio;
+
+     /**
+     * @var string
+     * @ORM\Column(name="Video_1", type="text")
+     */
+    private $Video_1;
+    /**
+     * @var string
+     * @ORM\Column(name="Video_2", type="text")
+     */
+    private $Video_2;
+
+    /**
+     * @var string
+     * @ORM\Column(name="Video_3", type="text")
+     */
+    private $Video_3;
+    /**
+     * @var string
+     * @ORM\Column(name="Video_4", type="text")
+     */
+    private $Video_4;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="Fecha", type="date")
@@ -55,7 +83,6 @@ class Caserios
      **/
     protected $galeria;
 
-    
     /**
      * Constructor
      */
@@ -119,6 +146,115 @@ class Caserios
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+
+    /**
+     * Set Imagencaserio
+     *
+     * @param string $imagencaserio
+     * @return Caserios
+     */
+    public function setImagencaserio($imagencaserio)
+    {
+        $this->Imagencaserio = $imagencaserio;
+
+        return $this;
+    }
+
+    /**
+     * Get Imagencaserio
+     *
+     * @return string 
+     */
+    public function getImagencaserio()
+    {
+        return $this->Imagencaserio;
+    }
+
+    /**
+     * Set Video_1
+     *
+     * @param string $video1
+     * @return Caserios
+     */
+    public function setVideo1($video1)
+    {
+        $this->Video_1 = $video1;
+
+        return $this;
+    }
+
+    /**
+     * Get Video_1
+     *
+     * @return string 
+     */
+    public function getVideo1()
+    {
+        return $this->Video_1;
+    }
+
+    /**
+     * Set Video_2
+     *
+     * @param string $video2
+     * @return Caserios
+     */
+    public function setVideo2($video2)
+    {
+        $this->Video_2 = $video2;
+
+        return $this;
+    }
+
+    /**
+     * Get Video_2
+     *
+     * @return string 
+     */
+    public function getVideo2()
+    {
+        return $this->Video_2;
+    }
+
+    /**
+     * Set Video_3
+     *
+     * @param string $video3
+     * @return Caserios
+     */
+    public function setVideo3($video3)
+    {
+        $this->Video_3 = $video3;
+
+        return $this;
+    }
+
+    /**
+     * Get Video_3
+     *
+     * @return string 
+     */
+    public function getVideo3()
+    {
+        return $this->Video_3;
+    }
+
+    public function setVideo4($video4)
+    {
+        $this->Video_4 = $video4;
+
+        return $this;
+    }
+
+    /**
+     * Get Video_3
+     *
+     * @return string 
+     */
+    public function getVideo4()
+    {
+        return $this->Video_4;
     }
 
     /**
@@ -210,10 +346,8 @@ class Caserios
         return $this->galeria;
     }
 
-    /*metodos magicos*/
-
-    public function __toString(){
-        return  $this->nombre;
+     public function __toString()
+    {
+        return $this->nombre;
     }
-
 }

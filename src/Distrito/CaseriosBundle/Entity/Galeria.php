@@ -31,16 +31,17 @@ class Galeria
      /**
      * @var text
      *
-     * @ORM\Column(name="descripcion", type="text")
+     * @ORM\Column(name="descripcionGaleria", type="text")
      */
-    private $descripcion;
+    private $descripcionGaleria;
 
     /**
+    * @var integer
      * @ORM\ManyToOne(targetEntity="Caserios")
-     * @ORM\JoinColumn(name="Caserios_id", nullable=false, referencedColumnName="id")
+     * @ORM\JoinColumn(name="caserios_id", nullable=false, referencedColumnName="id")
      **/
-    protected $Caserios_id;
-    
+    protected $caserios_id;
+
     /**
      * Get id
      *
@@ -75,48 +76,53 @@ class Galeria
     }
 
     /**
-     * Set descripcion
+     * Set descripcionGaleria
      *
-     * @param string $descripcion
+     * @param string $descripcionGaleria
      * @return Galeria
      */
-    public function setDescripcion($descripcion)
+    public function setDescripcionGaleria($descripcionGaleria)
     {
-        $this->descripcion = $descripcion;
+        $this->descripcionGaleria = $descripcionGaleria;
 
         return $this;
     }
 
     /**
-     * Get descripcion
+     * Get descripcionGaleria
      *
      * @return string 
      */
-    public function getDescripcion()
+    public function getDescripcionGaleria()
     {
-        return $this->descripcion;
+        return $this->descripcionGaleria;
     }
 
     /**
-     * Set Caserios_id
+     * Set caserios_id
      *
      * @param \Distrito\CaseriosBundle\Entity\Caserios $caseriosId
      * @return Galeria
      */
     public function setCaseriosId(\Distrito\CaseriosBundle\Entity\Caserios $caseriosId)
     {
-        $this->Caserios_id = $caseriosId;
+        $this->caserios_id = $caseriosId;
 
         return $this;
     }
 
     /**
-     * Get Caserios_id
+     * Get caserios_id
      *
      * @return \Distrito\CaseriosBundle\Entity\Caserios 
      */
     public function getCaseriosId()
     {
-        return $this->Caserios_id;
+        return $this->caserios_id;
+    }
+
+    public function __toString()
+    {
+        return $this->imgGaleria;
     }
 }

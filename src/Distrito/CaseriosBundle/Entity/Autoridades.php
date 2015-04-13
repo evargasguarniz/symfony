@@ -65,10 +65,14 @@ class Autoridades
     private $gradoEstudio;
 
      /**
+     * @var integer
      * @ORM\ManyToOne(targetEntity="Caserios")
      * @ORM\JoinColumn(name="Caserios_id", nullable=false, referencedColumnName="id")
      **/
-    private $Caserios;
+    private $Caserios_id;
+
+    
+   
 
     /**
      * Get id
@@ -78,29 +82,6 @@ class Autoridades
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set idCaserio
-     *
-     * @param integer $idCaserio
-     * @return Autoridades
-     */
-    public function setIdCaserio($idCaserio)
-    {
-        $this->idCaserio = $idCaserio;
-
-        return $this;
-    }
-
-    /**
-     * Get idCaserio
-     *
-     * @return integer 
-     */
-    public function getIdCaserio()
-    {
-        return $this->idCaserio;
     }
 
     /**
@@ -241,9 +222,31 @@ class Autoridades
         return $this->gradoEstudio;
     }
 
+    /**
+     * Set Caserios_id
+     *
+     * @param \Distrito\CaseriosBundle\Entity\Caserios $caseriosId
+     * @return Autoridades
+     */
+    public function setCaseriosId(\Distrito\CaseriosBundle\Entity\Caserios $caseriosId)
+    {
+        $this->Caserios_id = $caseriosId;
+
+        return $this;
+    }
+
+    /**
+     * Get Caserios_id
+     *
+     * @return \Distrito\CaseriosBundle\Entity\Caserios 
+     */
+    public function getCaseriosId()
+    {
+        return $this->Caserios_id;
+    }
+
     public function __toString()
     {
         return $this->nombreAutoridad;
     }
-   
 }

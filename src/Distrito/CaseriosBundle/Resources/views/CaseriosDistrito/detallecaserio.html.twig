@@ -1,9 +1,97 @@
-{% extends '::base.html.twig' %}
-
-	{% block body -%}
+{# src/Distrito/DistritoBundle/Resouces/views/Caserios/index.html.twig #}
+{% extends 'DistritoCaseriosBundle::base.thml.twig' %}
+{% block title %} Detalle de caserio {% endblock %}
+	{% block body %}
 		<section>
-			    
-			<h1>Se mustra la plantilla</h1>
+				<div class="container-fluid">
+					<div class="row">
+					<h2>MAPA</h2>
+						<div class="col-lg-12">
+						<div id="map" style="height:500px;">
+							
+						</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row detalle-page" >
+						<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+							<div class="row ">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<h4 class="text-danger">Caserios</h4>
+									{% for caseriosll in queryall %}
+									<a href="{{ path('detalle_caserio',{'id':caseriosll.id})}}">{{caseriosll.nombre}}</a><br>
+									{% endfor %}
+								</div>
+								
+							</div>
+						</div>
+						
+						<div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">
+							<div class="row ">
+								{% for detalle in entity %}
+								<div class="col-lg-12">
+									<h3 class="text-danger">Detalle del caserio {{ detalle.nombre }}</h3>
+								</div>
+								<div class="col-lg-12">
+									<div class="img-detalle">
+										<img src="{{ asset('img/')}}{{detalle.Imagencaserio }}" class="img-responsive img-thumbnail" alt="Responsive image">
+									<div class="detalle-text">
+					                    	{% set descri = detalle.descripcion|split('',400) %}
+					                    	
+					                    	{% for detc in descri %}
+					                    		{{ detc }} .<p></p>
+					                    	{% endfor %}
+											</div>
+				                    	</div>
+								</div>
+								{% endfor %}
+
+								<div class="col-lg-12">
+									<h3 class="text-danger">Galeria de Imagenes</h3>
+								</div>
+								<div class="col-lg-12">
+									{% for galeria in queryg %}
+								      	<a class="venobox detalle-img-thui" data-gall="myGallery" href="{{ asset('img/')}}{{galeria.imgGaleria }}"><img src="{{ asset('img/')}}{{galeria.imgGaleria }}" alt="image alt"/></a>
+							      	{% endfor %}
+								</div>
+					                    
+							</div>
+								
+						</div>	
+						
+					</div>
+				</div>
+					
+					<!--zona de videos-->
+				</div>
+
+
+
+				<div class="container-fluid">
+					<div class="row">
+					<div class="col-lg-12">
+						<h3 class="text-danger">Los mejores videos</h3>
+					</div>
+						{% for detalle in entity %}
+						<div class="detalle-page">
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<iframe  src="{{detalle.Video_1}}" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<iframe  src="{{detalle.Video_2}}" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<iframe  src="{{detalle.Video_3}}" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+								<iframe  src="{{detalle.Video_4}}" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>	
 	   </section>
 	        
 	{% endblock %}

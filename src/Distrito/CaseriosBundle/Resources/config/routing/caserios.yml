@@ -22,9 +22,9 @@ caserios_edit:
 caserios_update:
     path:     /{id}/update
     defaults: { _controller: "DistritoCaseriosBundle:Caserios:update" }
-    methods:  [POST]
+    methods:  [POST,GET]
 
 caserios_delete:
     path:     /{id}/delete
     defaults: { _controller: "DistritoCaseriosBundle:Caserios:delete" }
-    methods:  [POST, GET]
+    methods:  [POST, DELETE]
