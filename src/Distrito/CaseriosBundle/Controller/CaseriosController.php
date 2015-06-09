@@ -31,7 +31,7 @@ class CaseriosController extends Controller
         ));
     }
     /**
-     * Creates a new Caserios entity.
+     * Creates a new Caserios entity. crenado un cambio para ve git
      *
      */
     public function createAction(Request $request)
